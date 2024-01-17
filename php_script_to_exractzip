@@ -1,0 +1,21 @@
+<?php
+
+$zipFile = _DIR_ . '/web.zip';  // Replace with the path to your .zip file
+$extractTo = _DIR_ . '/../test';  // Replace with the path where you want to extract the contents
+
+// Create a ZipArchive object
+$zip = new ZipArchive;
+
+// Open the .zip file
+if ($zip->open($zipFile) === TRUE) {
+    
+    // Extract the contents to the specified folder
+    $zip->extractTo($extractTo);
+    
+    // Close the .zip file
+    $zip->close();
+    
+    echo 'Extraction successful!';
+} else {
+    echo 'Extraction failed!';
+}
